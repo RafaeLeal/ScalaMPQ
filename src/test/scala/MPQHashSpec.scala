@@ -4,6 +4,8 @@ import me.rafaeleal.mpq.MPQArchive
 import me.rafaeleal.mpq.hash.{HashType, MPQEncryptionTable, MPQHash}
 import org.scalatest.FlatSpec
 
+import scala.io.Source
+
 
 /**
   * Created by rafaeleal on 4/8/17.
@@ -12,7 +14,7 @@ class MPQHashSpec extends FlatSpec {
   val path: String = new File(".").getAbsolutePath
   "EncryptionTable" should "work as Blizzard's" in {
     val table = new MPQEncryptionTable()
-    val hashTable = scala.io.Source.fromFile(s"$path/src/test/resources/HashTable")
+    val hashTable = Source.fromFile(s"$path/src/test/resources/HashTable")
     val entries = hashTable.getLines()
 
     for(line <- entries) {
@@ -38,7 +40,7 @@ class MPQHashSpec extends FlatSpec {
 
   "Decrypting" should "work as expected" in {
     val path = new File(".").getAbsolutePath
-    val decryptValues = scala.io.Source.fromFile(s"$path/src/test/resources/DecryptValues").getLines().toList
+    val decryptValues = Source.fromFile(s"$path/src/test/resources/DecryptValues").getLines().toList
     println(path)
 
     val archive = new MPQArchive(s"$path/src/test/resources/MyReplay.SC2Replay")
