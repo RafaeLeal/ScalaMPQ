@@ -23,4 +23,5 @@ class MPQEncryptionTable(seed: Long = 0x00100001){
   })._1
 
   def apply(key: Long): Long = encryptionTable.apply(key)
+  def apply(key: BigInt): BigInt = BigInt(encryptionTable.apply(key.toLong))
 }

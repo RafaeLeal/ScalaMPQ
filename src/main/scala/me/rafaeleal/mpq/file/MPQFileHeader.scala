@@ -1,4 +1,6 @@
-package me.rafaeleal.mpq
+package me.rafaeleal.mpq.file
+
+import me.rafaeleal.mpq.{MPQHeader, MPQUserDataHeader}
 
 /**
   * Created by rafaeleal on 4/8/17.
